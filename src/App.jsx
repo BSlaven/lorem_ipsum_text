@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import './App.css'
-import text from './data';
+import texts from './data';
 
 function App() {
+
+  const [ data, setData ] = useState(texts);
 
   return (
     <div className="App">
