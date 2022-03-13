@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import texts from './data';
 
@@ -12,11 +12,15 @@ function App() {
     e.preventDefault();
     const newData = [...data];
     if(textNumber <= 1 || textNumber >= newData.length) {
-      setDisplayData(newData[0]);
+      setDisplayData([newData[0]]);
       return
     }
     setDisplayData(data.slice(0, textNumber))
   }
+
+  useEffect(() => {
+    console.log(displayData);
+  }, [displayData]);
 
   const numberInputHandler = e => {
     const number = +e.target.value;
@@ -35,6 +39,9 @@ function App() {
         <button
           className="form-button">generate</button>
       </form>
+      <section className="paragraph-container">
+        {displayData && displayData.map(item => <p key={item}>{item}</p>)}
+      </section>
     </div>
   )
 }
