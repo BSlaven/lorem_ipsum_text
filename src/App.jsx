@@ -6,9 +6,16 @@ function App() {
 
   const [ data, setData ] = useState(texts);
   const [ textNumber, setTextNumber ] = useState(0);
+  const [ displayData, setDisplayData ] = useState([]);
 
   const generateText = e => {
     e.preventDefault();
+    const newData = [...data];
+    if(textNumber <= 1 || textNumber >= newData.length) {
+      setDisplayData(newData[0]);
+      return
+    }
+    setDisplayData(data.slice(0, textNumber))
   }
 
   const numberInputHandler = e => {
@@ -25,7 +32,8 @@ function App() {
           type="number"
           value={textNumber}
           className="form-input" />
-        <button className="form-button">generate</button>
+        <button
+          className="form-button">generate</button>
       </form>
     </div>
   )
