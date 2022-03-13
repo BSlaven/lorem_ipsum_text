@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import './App.css'
 import texts from './data';
 
@@ -17,11 +17,7 @@ function App() {
     }
     setDisplayData(data.slice(0, textNumber))
   }
-
-  useEffect(() => {
-    console.log(displayData);
-  }, [displayData]);
-
+  
   const numberInputHandler = e => {
     const number = +e.target.value;
     setTextNumber(number);
