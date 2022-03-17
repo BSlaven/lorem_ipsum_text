@@ -1,4 +1,4 @@
-# Tours App
+# Lorem Ipsum Generator App
 
 ## Simple app to generate random text depending on inputed number
 
